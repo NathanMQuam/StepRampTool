@@ -1,7 +1,15 @@
-import ValuesController from "./Controllers/ValuesController.js";
-
-class App {
-  // valuesController = new ValuesController();
+function _draw () {
+  let bedHeight = document.getElementById("BedHeightInput")
 }
 
-window["app"] = new App();
+class App {
+  /**
+   * @param {event} event
+   */
+  setRamp (event) {
+    event.preventDefault()
+    console.log(event)
+  }
+}
+
+window["rampApp"] = new App();

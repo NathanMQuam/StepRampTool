@@ -26,21 +26,21 @@
 
     <main>
         <div id="app" class="m-5 p-5 text-center">
-            <form action="">
-                <input type="text" name="BedHeight" id="BedHeightInput">
+            <form onsubmit="rampApp.setRamp(event)">
+                <input type="text" name="BedHeight" id="BedHeightInput" placeholder="Bed Height (Inches)">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="" id="" value="checkedValue" checked>
+                        <input type="radio" class="form-check-input" name="rampModel" id="SR-B5" value="72">
                         SR-B5
-                    </label>
-                </div>
-                <div class="form-check">
+                    </label><br />
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
+                        <input type="radio" class="form-check-input" name="rampModel" id="SR-B6" value="82">
                         SR-B6
-                    </label>
+                    </label><br />
                 </div>
-            </form>
+                <button type="submit">Submit</button>
+            </form><br />
+            <div id="rampDisplay"></div>
         </div>
     </main>
 
