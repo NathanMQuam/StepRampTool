@@ -41,7 +41,11 @@
 				</div>
 				<button type="submit">Submit</button>
 			</form><br />
-			<div id="rampDisplay"></div>
+			<div id="rampDisplay" onload="App._draw()">
+				<canvas id="rampCanvas" width="400px" height="300px" style="outline: 1px black solid; padding: 2px;">
+					We apologize, but this ramp preview requires your web browser to support HTML Canvas.
+				</canvas>
+			</div>
 		</div>
 	</main>
 
@@ -56,6 +60,7 @@
 	</footer>
 
 	<script src="app/main.js" type="module"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>
