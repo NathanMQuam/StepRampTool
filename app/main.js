@@ -8,7 +8,7 @@ let ctx = canvas.getContext("2d")
 
 let update = function() {
 	let form = $('form').serializeArray()
-	console.log(form)
+	// console.log(form)
 	let tri = {
 		angA: 90, // Ground Bed
 		// angB: undefined, // Ground Ramp
@@ -17,18 +17,18 @@ let update = function() {
 		sideB: Number(form.find(o => o.name == "BedHeight").value), // Bed Height
 		sideC: undefined // Ground Depth
 	}
-	$('#BedHeightInput').attr("max", tri.sideA)
+	$('#BedHeightInput').attr("max", tri.sideA - 2)
 	
 	tri.sideC = (Math.sqrt(Math.pow(tri.sideA, 2) - Math.pow(tri.sideB, 2)))
-	console.log(Math.pow(tri.sideA, 2), Math.pow(tri.sideB, 2), (Math.pow(tri.sideA, 2) - Math.pow(tri.sideB, 2)))
+	// console.log(Math.pow(tri.sideA, 2), Math.pow(tri.sideB, 2), (Math.pow(tri.sideA, 2) - Math.pow(tri.sideB, 2)))
 	
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height)
 	ctx.beginPath()
 	ctx.lineJoin = "round"
-	ctx.moveTo(0, 0) // ang C
-	ctx.lineTo(0, tri.sideB) // ang A
-	ctx.lineTo(tri.sideC, tri.sideB) // ang B
+	ctx.moveTo(50, 50) // ang C
+	ctx.lineTo(50, 50 + tri.sideB * 2) // ang A
+	ctx.lineTo(50 + tri.sideC * 2, 50 + tri.sideB * 2) // ang B
 	ctx.closePath()
 	ctx.stroke()
 }
