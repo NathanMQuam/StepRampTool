@@ -27,7 +27,7 @@
 	<main>
 		<div id="app" class="m-5 p-5 text-center">
 			<form onsubmit="rampApp.setRamp(event)">
-				<input type="number" name="BedHeight" id="BedHeightInput" placeholder="Bed Height (Inches)" min="1" max="80"
+				<input type="number" name="BedHeight" id="BedHeightInput" placeholder="Bed Height (Inches)" min="28" max="44"
 					required value="32">
 				<div class="form-check">
 					<label class="form-check-label">
@@ -39,10 +39,9 @@
 						SR-B6
 					</label><br />
 				</div>
-				<button type="submit">Submit</button>
 			</form><br />
 			<div id="rampDisplay" onload="App._draw()">
-				<canvas id="rampCanvas" width="400px" height="300px" style="outline: 1px black solid; padding: 2px;">
+				<canvas id="rampCanvas" width="600px" height="400px" style="outline: 1px black solid; padding: 2px;">
 					We apologize, but this ramp preview requires your web browser to support HTML Canvas.
 				</canvas>
 			</div>
