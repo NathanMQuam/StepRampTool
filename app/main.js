@@ -91,23 +91,3 @@ if(ctx) {
 } else {
 	console.error('Canvas did not return a context')
 }
-
-
-
-class App {
-	constructor() {
-
-	}
-	/**
-	 * @param {event} event
-	 */
-	setRamp (event) {
-		event.preventDefault()
-	}
-
-	_draw () {
-		// let output = document.getElementById('rampDisplay')
-	}
-}
-
-window["rampApp"] = new App();
