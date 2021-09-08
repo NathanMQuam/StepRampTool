@@ -21,7 +21,7 @@ canvas.style.height = canvasSize.height + 'px'
 let globalScale = renderResolution.width / canvasSize.width
 ctx.setTransform(globalScale, 0, 0, globalScale, 0, 0)
 
-// NOTE: The dirtbike in the image is 45.3in tall
+// The dirt bike in the image is 45.3in tall
 let bikeImg = new Image()
 bikeImg.src = './assets/img/dirtbike.png'
 let truckImg = new Image()
@@ -36,9 +36,9 @@ let rampB6Img = new Image()
 rampB6Img.src = './assets/img/stepRamp_B6.png'
 
 function drawImageCenter (image, x, y, cx, cy, scale, rotation = 0) {
-	scale = scale * globalScale
-	x = x * globalScale
-	y = y * globalScale
+	scale *= globalScale
+	x *= globalScale
+	y *= globalScale
 	ctx.setTransform(scale, 0, 0, scale, x, y) // sets scale and origin
 	ctx.rotate(rotation)
 	ctx.drawImage(image, -cx, -cy)
@@ -77,10 +77,6 @@ let update = function () {
 
 	if (!drawWireframe) {
 		// Draw the background, then the truck, then the foreground tire
-		console.log(globalScale)
-		console.log('Background scale:', (157 / bkgImg.height) * 2)
-		console.log('Truck scale:', (76 / truckImg.height) * 2)
-		console.log('Truck y-coordinate:', rampOrigin.y - 76)
 		drawImageCenter(bkgImg, 0, 0, 0, 0, (157 / bkgImg.height) * 2)
 		drawImageCenter(
 			truckImg,
@@ -92,7 +88,7 @@ let update = function () {
 		)
 		drawImageCenter(foreImg, 0, 0, 0, 0, (157 / foreImg.height) * 2)
 
-		// Drawing the rotated ramp and dirtbike
+		// Drawing the rotated ramp and dirt bike
 		drawImageCenter(
 			rampImg,
 			rampOrigin.x,
