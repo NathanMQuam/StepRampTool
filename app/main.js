@@ -34,12 +34,24 @@ let rampB5Img = new Image()
 rampB5Img.src = './assets/img/stepRamp.png'
 let rampB6Img = new Image()
 rampB6Img.src = './assets/img/stepRamp_B6.png'
+let shadowImg = new Image()
+shadowImg.src = './assets/img/bikeShadow.png'
 
-function drawImageCenter (image, x, y, cx, cy, scale, rotation = 0) {
+function drawImageCenter (
+	image,
+	x,
+	y,
+	cx,
+	cy,
+	scale,
+	rotation = 0,
+	scaleX = scale
+) {
 	scale *= globalScale
+	scaleX *= globalScale
 	x *= globalScale
 	y *= globalScale
-	ctx.setTransform(scale, 0, 0, scale, x, y) // sets scale and origin
+	ctx.setTransform(scaleX, 0, 0, scale, x, y) // sets scale and origin
 	ctx.rotate(rotation)
 	ctx.drawImage(image, -cx, -cy)
 	ctx.setTransform(1, 0, 0, 1, 0, 0)
@@ -90,6 +102,16 @@ let update = function () {
 
 		// Drawing the rotated ramp and dirt bike
 		drawImageCenter(
+			shadowImg,
+			rampOrigin.x,
+			200,
+			0,
+			0,
+			(80 / shadowImg.width) * 2,
+			0,
+			((tri.sideC + 21) / shadowImg.width) * 2
+		)
+		drawImageCenter(
 			rampImg,
 			rampOrigin.x,
 			rampOrigin.y,
@@ -130,6 +152,7 @@ if (ctx) {
 	foreImg.addEventListener('load', update)
 	rampB5Img.addEventListener('load', update)
 	rampB6Img.addEventListener('load', update)
+	shadowImg.addEventListener('load', update)
 	$('form').on('change', update)
 } else {
 	console.error('Canvas did not return a context')
