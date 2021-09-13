@@ -10,6 +10,9 @@
   "author": "Jake Overall <joverall22@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^7.17.0",
     "sass": "^1.26.10"
   },
   "dependencies": {

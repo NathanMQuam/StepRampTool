@@ -9,7 +9,7 @@ let renderResolution = { width: 2000, height: 1200 }
 let canvasSize = { width: 500, height: 300 }
 
 //  Prevent form submission from redirecting or refreshing
-formElem.on('submit', e => {
+formElem.on('submit', (e) => {
 	e.preventDefault()
 })
 
@@ -37,15 +37,8 @@ rampB6Img.src = './assets/img/stepRamp_B6.png'
 let shadowImg = new Image()
 shadowImg.src = './assets/img/bikeShadow.png'
 
-function drawImageCenter (
-	image,
-	x,
-	y,
-	cx,
-	cy,
-	scale,
-	rotation = 0,
-	scaleX = scale
+function drawImageCenter(
+	image, x, y, cx, cy, scale, rotation = 0, scaleX = scale
 ) {
 	scale *= globalScale
 	scaleX *= globalScale
@@ -65,12 +58,12 @@ let update = function () {
 		angA: 90, // Ground Bed
 		angB: undefined, // Ground Ramp
 		angC: undefined, // Bed Ramp
-		sideA: Number(form.find(o => o.name == 'rampModel').value), // Ramp Length
+		sideA: Number(form.find((o) => o.name == 'rampModel').value), // Ramp Length
 		sideB: Math.max(
 			30,
-			Math.min(44, Number(form.find(o => o.name == 'BedHeight').value))
+			Math.min(44, Number(form.find((o) => o.name == 'BedHeight').value))
 		), // Bed Height
-		sideC: undefined // Ground Depth
+		sideC: undefined, // Ground Depth
 	}
 
 	tri.sideC = Math.sqrt(Math.pow(tri.sideA, 2) - Math.pow(tri.sideB, 2))
@@ -84,8 +77,9 @@ let update = function () {
 	infoBox.innerHTML = `<div>Based on the input bed height, we recommend the 
 		<span id="recommendedRampModel">${tri.sideB < 36 ? 'SR-B5' : 'SR-B6'}
 		</span> model Step Ramp.</div>
-		<div>Estimated slope angle: ${Math.round(((tri.angC * 180) / Math.PI) * 10) /
-			10}&#176;</div>`
+		<div>Estimated slope angle: ${
+	Math.round(((tri.angC * 180) / Math.PI) * 10) / 10
+}&#176</div>`
 
 	if (!drawWireframe) {
 		// Draw the background, then the truck, then the foreground tire
