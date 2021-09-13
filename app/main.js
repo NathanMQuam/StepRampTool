@@ -61,7 +61,7 @@ let update = function () {
 		sideA: Number(form.find((o) => o.name == 'rampModel').value), // Ramp Length
 		sideB: Math.max(
 			30,
-			Math.min(44, Number(form.find((o) => o.name == 'BedHeight').value))
+			Math.min(44, Number(form.find((o) => o.name == 'bedHeight').value))
 		), // Bed Height
 		sideC: undefined, // Ground Depth
 	}
@@ -75,8 +75,8 @@ let update = function () {
 	let rampOrigin = { x: 230, y: 230 - tri.sideB * 2 }
 	let rampImg = tri.sideA == 72 ? rampB5Img : rampB6Img
 	infoBox.innerHTML = `<div>Based on the input bed height, we recommend the 
-		<span id="recommendedRampModel">${tri.sideB < 36 ? 'SR-B5' : 'SR-B6'}
-		</span> model Step Ramp.</div>
+		<span id="recommendedRampModel">${tri.sideB <= 35 ? 'SR-B5 from 30-35' : tri.sideB <= 38 ? 'SR-B5 Or SR-B6 from 36-38' : 'SR-B6 from 39-44'}
+		</span></div>
 		<div>Estimated slope angle: ${
 	Math.round(((tri.angC * 180) / Math.PI) * 10) / 10
 }&#176</div>`

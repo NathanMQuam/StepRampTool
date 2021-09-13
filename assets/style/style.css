@@ -14,16 +14,21 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 500px;
-	text-align: center;
-	display: flex;
+	text-align: left;
+	/* display: flex;
 	justify-content: center;
 	align-content: center;
+	flex-direction: column; */
 }
 
 #infoBox, #rampForm {
-	padding: 15px;
+	padding: 5px;
 }
 
 #recommendedRampModel {
 	font-weight: bold;
+}
+
+#bedHeightInput {
+	width: 100%;
 }

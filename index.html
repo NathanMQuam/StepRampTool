@@ -26,17 +26,23 @@
 		<div id="app">
 			<div id="inputBox">
 				<form id="rampForm">
-					<input type="number" name="BedHeight" id="BedHeightInput" placeholder="Bed Height (Inches)" min="30" max="44"
-						required value="36">
-					<div class="form-check">
-						<label class="form-check-label">
-							<input type="radio" class="form-check-input" name="rampModel" id="SR-B5" value="72" checked>
-							SR-B5
-						</label><br />
-						<label class="form-check-label">
-							<input type="radio" class="form-check-input" name="rampModel" id="SR-B6" value="82">
-							SR-B6
-						</label><br />
+					<div id="bedHeightInput">
+						<label for="bedHeight">Enter Bed Height:</label>
+						<input type="number" name="bedHeight" placeholder="Bed Height (Inches)" min="30" max="44" required
+							value="36">
+					</div>
+					<div>
+						<label>Choose Ramp Model to Preview:</label>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="rampModel" id="SR-B5" value="72" checked>
+								SR-B5
+							</label><br />
+							<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="rampModel" id="SR-B6" value="82">
+								SR-B6
+							</label>
+						</div>
 					</div>
 				</form>
 				<div id="infoBox"></div>
